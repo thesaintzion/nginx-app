@@ -3,12 +3,11 @@ const app = express();
 const path = require('path');
 const staticView = path.join('./public');
 
-app.use(express.static(staticView));
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to  heaven</h1>')
 });
 
-const PORT = process.env.PORT || 4400;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}`);
 });
